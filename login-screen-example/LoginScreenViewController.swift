@@ -12,7 +12,12 @@ class LoginScreenViewController: UIViewController {
     
     let loginContentView: UIView = {
         let view = UIView()
-        view.backgroundColor = .green
+        view.backgroundColor = .white
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.2
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 10
+        view.layer.cornerRadius = 7
         return view
     }()
     
@@ -29,7 +34,7 @@ class LoginScreenViewController: UIViewController {
     }()
     
     let loginButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
         button.addTarget(self, action: #selector(loginButtonPressed), for: UIControl.Event.touchUpInside)
         return button
@@ -38,7 +43,8 @@ class LoginScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
+        setupLoginViewContent()
     }
     
     @objc func loginButtonPressed(sender: UIButton) {
